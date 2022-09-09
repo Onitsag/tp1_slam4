@@ -1,0 +1,8 @@
+.voiture {
+    display: flex;
+    justify-content: center;
+}
+
+.voiture img{
+    width: 300px;
+}
