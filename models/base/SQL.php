@@ -2,6 +2,9 @@
 
 namespace models\base;
 
+use PDO;
+use models\base\Database;
+
 class SQL implements IDatabase
 {
     protected $tableName = '';

@@ -19,4 +19,20 @@ class TodoWeb extends Web
         Template::render("views/todos/liste.php", array('todos' => $todos)); // Affichage de votre vue.
     }
 
+    function ajouter($texte = "")
+    {
+        if($texte != ""){
+            $this->todoModel->ajouterTodo($texte);
+        }
+        $this->redirect("./liste");
+    }
+
+    function terminer($id = ''){
+        if($id != ""){
+            $this->todoModel->marquerCommeTermine($id);
+        }
+    
+        $this->redirect("./liste");
+    }
+    
 }
