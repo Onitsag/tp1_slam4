@@ -31,7 +31,13 @@ class TodoWeb extends Web
         if($id != ""){
             $this->todoModel->marquerCommeTermine($id);
         }
-    
+        $this->redirect("./liste");
+    }
+
+    function supprimer($id = ''){
+        if($id != ""){
+            $this->todoModel->supprimerTodo($id);
+        }
         $this->redirect("./liste");
     }
     

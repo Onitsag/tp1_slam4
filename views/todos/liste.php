@@ -17,9 +17,21 @@
                         <div class="d-flex">
                             <div class="flex-grow-1 align-self-center"><?= $todo['texte'] ?></div>
                             <div>
-                                <a href="./terminer?id=<?= $todo['id'] ?>" class="btn btn-outline-success">
-                                    <i class="bi bi-check"></i>
-                                </a>
+                                <?php
+                                if($todo['termine']==0){
+                                    ?>
+                                    <a href="./terminer?id=<?= $todo['id'] ?>" class="btn btn-outline-success">
+                                        <i class="bi bi-check"></i>
+                                    </a>
+                                <?php
+                                }else{
+                                    ?>
+                                    <a href="./supprimer?id=<?= $todo['id'] ?>" class="btn btn-outline-danger">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                <?php
+                                }
+                                ?>
                                 <!-- Action à ajouter pour Supprimer -->
                             </div>
                         </div>
