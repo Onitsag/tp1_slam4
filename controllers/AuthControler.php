@@ -29,4 +29,22 @@ class AuthControler extends Web
 
         Template::render("views/global/connection.php", array("erreur" => $erreur));
     }
+
+    function inscription($login = "", $password = ""): void
+    {
+        if (SessionHelpers::isLogin()) {
+            $this->redirect("/");
+        }
+
+        $erreur = "";
+        if (!empty($login) && !empty($password)) {
+            $equipeM = new \models\AuthModel();
+           
+            $equipeM->inscription($login, $password);
+
+            $this->redirect("/connection");
+        }
+
+        Template::render("views/global/inscription.php", array("erreur" => $erreur));
+    }
 }

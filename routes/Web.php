@@ -18,12 +18,17 @@ class Web
         if (SessionHelpers::isLogin()){
             Route::Add('/', [$main, 'home']);
             Route::Add('/about', [$main, 'about']);
+            Route::Add('/deco', [$main, 'deco']);
         } else {
             Route::Add('/', [$main, 'connection']);
             Route::Add('/connection', [$main, 'connection']);
         }
+
         $auth = new AuthControler();
         Route::Add('/login', [$auth, 'login']);
+
+        Route::Add('/inscription', [$auth, 'inscription']);
+        
 
         //        Exemple de limitation d'accès à une page en fonction de la SESSION.
         //        if (SessionHelpers::isLogin()) {

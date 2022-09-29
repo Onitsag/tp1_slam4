@@ -22,4 +22,11 @@ class AuthModel extends SQL
             return null;
         }
     }
+
+    public function inscription(string $login, string $password)
+    {
+        $mdp = password_hash($password, PASSWORD_BCRYPT);
+        $stmt = $this->pdo->prepare("INSERT INTO users (LOGIN, PASSWORD) VALUES (?, ?)");
+        $stmt->execute([$login, $mdp]);
+    }
 }

@@ -2,10 +2,10 @@
 
 <div class="d-flex flex-column justify-content-center align-items-center vh-100 bg fullContainer">
 
-    <h1>Connexion</h1>
+    <h1>Inscription</h1>
 
     <div class="wrapper fadeInDown">
-        <form action="/login" method="post" id="formContent">
+        <form action="/inscription" method="post" id="formContent">
             <!-- Icon -->
             <div class="fadeIn first voiture">
                 <img src="/public/images/voiture.jpg" class="icon" id="icon" alt="User Icon"/>

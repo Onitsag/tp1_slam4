@@ -3,6 +3,7 @@
 namespace controllers;
 
 use controllers\base\Web;
+use utils\SessionHelpers;
 use utils\Template;
 
 class SampleWeb extends Web
@@ -20,5 +21,11 @@ class SampleWeb extends Web
     function connection()
     {
         Template::render("views/global/connection.php");
+    }
+
+    function deco()
+    {
+        SessionHelpers::logout();
+        $this->redirect("/connection");
     }
 }
