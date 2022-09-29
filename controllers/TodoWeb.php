@@ -13,9 +13,15 @@ class TodoWeb extends Web
         $this->todoModel = new TodoModel();
     }
 
+    // function liste()
+    // {
+    //     $todos = $this->todoModel->getAll(); // Récupération des TODOS présents en base.
+    //     Template::render("views/todos/liste.php", array('todos' => $todos)); // Affichage de votre vue.
+    // }
+
     function liste()
     {
-        $todos = $this->todoModel->getAll(); // Récupération des TODOS présents en base.
+        $todos = $this->todoModel->getTodoPerso(); // Récupération des TODOS présents en base.
         Template::render("views/todos/liste.php", array('todos' => $todos)); // Affichage de votre vue.
     }
 

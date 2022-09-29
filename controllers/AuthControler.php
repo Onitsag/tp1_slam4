@@ -16,7 +16,7 @@ class AuthControler extends Web
         $erreur = "";
         if (!empty($login) && !empty($password)) {
             $equipeM = new \models\AuthModel();
-
+           
             $lequipe = $equipeM->login($login, $password);
             if ($lequipe != null) {
                 SessionHelpers::login($lequipe);

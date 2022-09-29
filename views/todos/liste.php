@@ -1,12 +1,20 @@
+<?php
+use utils\SessionHelpers;
+?>
+
 <div class="container p-3">
     <div class="card">
         <div class="card-body p-2">
+
+            <h3>Bonjour <?= SessionHelpers::getConnected()["LOGIN"] ?> !</h3>
+
             <!-- Action -->
             <form action="./ajouter" method="post" class="add">
                 <div class="input-group">
                     <input id="texte" name="texte" type="text" class="form-control" placeholder="Prendre une note…" aria-label="My new idea" aria-describedby="basic-addon1"/>
                 </div>
             </form>
+
 
             <!-- Liste -->
             <ul class="list-group pt-3">

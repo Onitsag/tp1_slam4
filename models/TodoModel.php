@@ -1,7 +1,9 @@
 <?php
 namespace models;
 
+use PDO;
 use models\base\SQL;
+use utils\SessionHelpers;
 
 class TodoModel extends SQL
 {
@@ -16,12 +18,22 @@ class TodoModel extends SQL
     }
 
     function ajouterTodo($text){
-        $stmt = $this->pdo->prepare("INSERT INTO todos (texte) VALUES (?)");
-        $stmt->execute([$text]);
+        $login = SessionHelpers::getConnected()["LOGIN"];
+        $stmt = $this->pdo->prepare("INSERT INTO todos (texte, login) VALUES (?, ?)");
+        $stmt->execute([$text, $login]);
     }
 
     function supprimerTodo($text){
         $stmt = $this->pdo->prepare("DELETE FROM todos WHERE id = ? AND termine =1");
         $stmt->execute([$text]);
     }
+
+    public function getTodoPerso()
+    {
+        $login = SessionHelpers::getConnected()["LOGIN"];
+        $stmt = $this->pdo->prepare("SELECT * FROM todos WHERE login = ?;");
+        $stmt->execute([$login]);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
 }
