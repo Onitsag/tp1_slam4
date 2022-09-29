@@ -17,4 +17,8 @@ class SampleWeb extends Web
         Template::render("views/global/about.php", array("titre" => "A propos", "date" => date("d-m-Y à H:i")));
     }
 
+    function connection()
+    {
+        Template::render("views/global/connection.php");
+    }
 }

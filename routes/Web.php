@@ -4,6 +4,7 @@ namespace routes;
 
 use routes\base\Route;
 use controllers\Account;
+use controllers\AuthControler;
 use controllers\TodoWeb;
 use controllers\VideoWeb;
 use utils\SessionHelpers;
@@ -14,9 +15,12 @@ class Web
     function __construct()
     {
         $main = new SampleWeb();
-
         Route::Add('/', [$main, 'home']);
         Route::Add('/about', [$main, 'about']);
+        Route::Add('/connection', [$main, 'connection']);
+
+        $auth = new AuthControler();
+        Route::Add('/login', [$auth, 'login']);
 
         //        Exemple de limitation d'accès à une page en fonction de la SESSION.
         //        if (SessionHelpers::isLogin()) {

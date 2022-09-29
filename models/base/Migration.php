@@ -2,6 +2,7 @@
 
 namespace models\base;
 
+use models\base\Database;
 use mysql_xdevapi\Exception;
 
 class Migration extends Database
@@ -24,7 +25,7 @@ class Migration extends Database
                     $templine = '';
                 }
             }
-        } catch (Exception $err){
+        } catch (\Exception $err){
             echo "=> Migration fail for « $filename »\r\n";
             return;
         }
